@@ -1,3 +1,5 @@
+import "./SafeMath.sol";
+
 /**
  * @title TokenVesting
  * @dev A token holder contract that can release its token balance gradually like a
