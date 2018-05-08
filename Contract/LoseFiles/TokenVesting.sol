@@ -14,9 +14,9 @@ contract TokenVesting is Ownable {
   // beneficiary of tokens after they are released
   address public beneficiary;
 
-  uint256 public cliff;
-  uint256 public start;
-  uint256 public duration;
+  uint256 public cliff; //31556952 Seconds (1 Year)
+  uint256 public start; //0 Seconds
+  uint256 public duration; //94670856 Seconds (3 Years)
 
   bool public revocable;
 
