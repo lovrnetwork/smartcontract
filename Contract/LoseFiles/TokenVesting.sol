@@ -17,7 +17,7 @@ contract TokenVesting is Ownable {
   address public beneficiary;
 
   uint256 public cliff; //31556952 Seconds (1 Year)
-  uint256 public start; //0 Seconds
+  uint256 public start; //Get Current Timestamp
   uint256 public duration; //94670856 Seconds (3 Years)
 
   bool public revocable;
