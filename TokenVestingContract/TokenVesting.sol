@@ -25,7 +25,7 @@ contract TokenVesting is Ownable {
   address public beneficiary;
 
   uint256 public cliff; //31556952 Seconds (1 Year)
-  uint256 public start; //Get Current Timestamp
+  uint256 public start; //Timestamp or below 0 for current timestamp
   uint256 public duration; //94670856 Seconds (3 Years)
 
   bool public revocable;
@@ -42,7 +42,7 @@ contract TokenVesting is Ownable {
    * @param _duration duration in seconds of the period in which the tokens will vest
    * @param _revocable whether the vesting is revocable or not
    */
-  function TokenVesting(
+  constructor(
     address _beneficiary,
     uint256 _start,
     uint256 _cliff,
@@ -58,7 +58,10 @@ contract TokenVesting is Ownable {
     revocable = _revocable;
     duration = _duration;
     cliff = _start.add(_cliff);
-    start = _start;
+    if(_start < 0)
+        start = block.timestamp;
+    else
+        start = _start;
   }
 
   /**
