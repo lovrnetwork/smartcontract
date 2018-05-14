@@ -133,7 +133,7 @@ contract Crowdsale {
    * @param _tokenAmount Number of tokens to be purchased
    */
   function _processPurchase(address _beneficiary, uint256 _tokenAmount) internal {
-    _deliverTokens(_beneficiary, _tokenAmount * 10 ** 18);
+    _deliverTokens(_beneficiary, _tokenAmount);
   }
 
   /**
@@ -151,7 +151,7 @@ contract Crowdsale {
    * @return Number of tokens that can be purchased with the specified _weiAmount
    */
   function _getTokenAmount(uint256 _weiAmount) internal view returns (uint256) {
-    return _weiAmount.mul(rate);
+    return _weiAmount.mul(rate) * 10 ** 18;
   }
 
   /**
