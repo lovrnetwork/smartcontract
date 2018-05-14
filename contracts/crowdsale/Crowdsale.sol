@@ -133,7 +133,7 @@ contract Crowdsale {
    * @param _tokenAmount Number of tokens to be purchased
    */
   function _processPurchase(address _beneficiary, uint256 _tokenAmount) internal {
-    _deliverTokens(_beneficiary, _tokenAmount);
+    _deliverTokens(_beneficiary, _tokenAmount * 10 ** 18);
   }
 
   /**
